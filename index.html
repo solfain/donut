@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DONUTBET — DonutSMP Gambling | Coinflip, Crash, Mines, Jackpot</title>
+<meta name="description" content="The DonutSMP-style gambling experience. Coinflip, Crash, Mines, Roulette, Jackpot & Cases with Shards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="top-left">
+    <button class="hamburger" id="hamburger">☰</button>
+    <a class="logo" href="#" data-nav="lobby">
+      <span class="logo-donut">🍩</span>
+      <span>DONUT<em>BET</em></span>
+    </a>
+    <span class="live-pill"><span class="dot"></span> <b id="onlineCount">2,847</b> online</span>
+  </div>
+
+  <nav class="top-nav">
+    <a href="#" data-nav="lobby" class="active">Lobby</a>
+    <a href="#" data-nav="crash">Crash</a>
+    <a href="#" data-nav="cases">Cases</a>
+    <a href="#" data-nav="jackpot">Jackpot</a>
+  </nav>
+
+  <div class="top-right">
+    <div class="balance-box" id="balanceBox">
+      <span class="shard">◆</span>
+      <span id="balance">10,000</span>
+      <button class="plus-btn" id="openDeposit">+</button>
+    </div>
+    <button class="btn btn-pink btn-sm hide-mobile" id="claimBtnTop">🎁 Bonus</button>
+    <div class="user-chip" id="userChip">
+      <div class="avatar">S</div>
+      <div class="user-meta"><b id="usernameDisplay">Steve</b><small>LVL 12 • VIP</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="side-section">
+      <p class="side-label">ORIGINALS</p>
+      <a class="side-link active" data-nav="lobby"><span>🏠</span> Lobby</a>
+      <a class="side-link" data-nav="coinflip"><span>🪙</span> Coinflip <span class="hot">HOT</span></a>
+      <a class="side-link" data-nav="crash"><span>🚀</span> Crash <span class="hot gold">LIVE</span></a>
+      <a class="side-link" data-nav="mines"><span>💣</span> Mines</a>
+      <a class="side-link" data-nav="roulette"><span>🎡</span> Roulette</a>
+      <a class="side-link" data-nav="jackpot"><span>🏆</span> Jackpot <span class="hot">12 in pot</span></a>
+      <a class="side-link" data-nav="cases"><span>📦</span> Cases <span class="hot gold">NEW</span></a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-emoji">🍩</div>
+      <b>Free Shards</b>
+      <p>Claim 1,000 free shards. No deposit needed.</p>
+      <button class="btn btn-gold btn-full" id="claimBtn">Claim 1,000 ◆</button>
+      <small id="claimTimer"></small>
+    </div>
+
+    <div class="side-section">
+      <p class="side-label">ACCOUNT</p>
+      <a class="side-link" id="openDeposit2"><span>💳</span> Deposit</a>
+      <a class="side-link" id="openWithdraw"><span>🏦</span> Withdraw</a>
+      <a class="side-link" id="openFairness"><span>🔒</span> Provably Fair</a>
+      <a class="side-link" id="resetBtn"><span>↺</span> Reset Demo Balance</a>
+    </div>
+
+    <div class="affiliate-card">
+      <b>NOT AFFILIATED</b>
+      <p>Fan-made demo inspired by DonutSMP. Virtual shards only — no real money, no real Minecraft items.</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ============ LOBBY ============ -->
+    <section class="view active" id="view-lobby">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">◆ THE #1 DONUTSMP-STYLE CASINO</span>
+          <h1>BET SHARDS.<br><span>WIN BIG.</span><br>EAT DONUTS.</h1>
+          <p>Coinflip, Crash, Mines, Roulette, Jackpot &amp; Cases — built for DonutSMP grinders. Link your MC username, grab your free shards and run it up.</p>
+          <div class="hero-cta">
+            <button class="btn btn-pink btn-lg" data-nav="crash">🚀 Play Crash</button>
+            <button class="btn btn-ghost btn-lg" data-nav="cases">📦 Open a Case</button>
+          </div>
+          <div class="hero-stats">
+            <div><b id="statWagered">$48.2M</b><small>Total wagered</small></div>
+            <div><b>12,408</b><small>Players</small></div>
+            <div><b class="gold-text">◆ 2.4M</b><small>Biggest win today</small></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="images/donut-hero.png" alt="Golden donut jackpot">
+          <div class="floating-card fc1"><span>🚀 CRASH</span><b>14.32×</b></div>
+          <div class="floating-card fc2"><span>🏆 JACKPOT</span><b>◆ 184,500</b></div>
+          <div class="winner-toast">🍩 <b>xX_DonutKing_Xx</b> just won <b class="gold-text">◆ 92,000</b></div>
+        </div>
+      </div>
+
+      <div class="ticker" id="bigWinTicker"></div>
+
+      <div class="section-head">
+        <h2>🎮 All Games</h2>
+        <p>6 originals • Instant payouts • Provably fair</p>
+      </div>
+
+      <div class="games-grid">
+        <article class="game-card gc-crash" data-nav="crash">
+          <div class="gc-top"><span class="gc-icon">🚀</span><span class="gc-live">● 342 playing</span></div>
+          <h3>Crash</h3><p>Ride the multiplier. Cash out before it crashes.</p>
+          <div class="gc-foot"><span>Min ◆ 10</span><b>Play →</b></div>
+        </article>
+        <article class="game-card gc-coin" data-nav="coinflip">
+          <div class="gc-top"><span class="gc-icon">🪙</span><span class="gc-live">● 218 playing</span></div>
+          <h3>Coinflip</h3><p>Donut or Chocolate. Double your shards, 50/50.</p>
+          <div class="gc-foot"><span>1.92× payout</span><b>Play →</b></div>
+        </article>
+        <article class="game-card gc-mines" data-nav="mines">
+          <div class="gc-top"><span class="gc-icon">💣</span><span class="gc-live">● 196 playing</span></div>
+          <h3>Mines</h3><p>Dodge the TNT, stack gems, cash out anytime.</p>
+          <div class="gc-foot"><span>Up to 24 mines</span><b>Play →</b></div>
+        </article>
+        <article class="game-card gc-roulette" data-nav="roulette">
+          <div class="gc-top"><span class="gc-icon">🎡</span><span class="gc-live">● 167 playing</span></div>
+          <h3>Roulette</h3><p>Pink, Chocolate or Gold. Gold pays 14×.</p>
+          <div class="gc-foot"><span>14× on gold</span><b>Play →</b></div>
+        </article>
+        <article class="game-card gc-jackpot" data-nav="jackpot">
+          <div class="gc-top"><span class="gc-icon">🏆</span><span class="gc-live">● Pot ◆ 184k</span></div>
+          <h3>Jackpot</h3><p>One pot. One winner takes it all.</p>
+          <div class="gc-foot"><span>30s rounds</span><b>Play →</b></div>
+        </article>
+        <article class="game-card gc-cases" data-nav="cases">
+          <div class="gc-top"><span class="gc-icon">📦</span><span class="gc-live">● New cases</span></div>
+          <h3>Cases</h3><p>Open for Netherite, Elytras &amp; Dragon Eggs.</p>
+          <div class="gc-foot"><span>From ◆ 250</span><b>Play →</b></div>
+        </article>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-head"><h3>🔴 Live Bets</h3><span class="live-pill small"><span class="dot"></span> LIVE</span></div>
+          <div class="table-wrap">
+            <table class="bets-table">
+              <thead><tr><th>Player</th><th>Game</th><th>Bet</th><th>×</th><th>Payout</th></tr></thead>
+              <tbody id="liveBetsBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>👑 Leaderboard</h3><span>Today</span></div>
+          <div id="leaderboard"></div>
+          <div class="how">
+            <h4>How it works</h4>
+            <ol>
+              <li><b>Claim</b> your free 1,000 ◆ (left sidebar)</li>
+              <li><b>Pick a game</b> &amp; place your bet</li>
+              <li><b>Cash out</b> — winnings hit your balance instantly</li>
+              <li><b>Withdraw</b> demo shards to your (fake) MC account</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COINFLIP ============ -->
+    <section class="view" id="view-coinflip">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>🪙 Coinflip</h2><p>Pick a side. Win <b>1.92×</b> your bet.</p></div><span class="hash-badge" id="cfHash"></span></div>
+      <div class="game-layout">
+        <div class="panel bet-panel">
+          <label>Bet amount ◆</label>
+          <div class="bet-input"><input type="number" id="cfBet" value="500" min="10"><div class="bet-actions"><button data-bet="cfBet" data-op="half">½</button><button data-bet="cfBet" data-op="double">2×</button><button data-bet="cfBet" data-op="max">MAX</button></div></div>
+          <label>Pick your side</label>
+          <div class="side-pick">
+            <button class="pick-btn active" id="pickDonut">🍩<span>DONUT</span></button>
+            <button class="pick-btn" id="pickChoco">🍫<span>CHOCOLATE</span></button>
+          </div>
+          <button class="btn btn-pink btn-full btn-lg" id="cfFlipBtn">FLIP COIN</button>
+          <p class="fair-note">Win pays 1.92× • House edge 4%</p>
+          <div class="history" id="cfHistory"></div>
+        </div>
+        <div class="panel stage">
+          <div class="coin-wrap"><div class="coin" id="coin"><div class="coin-face coin-front">🍩</div><div class="coin-face coin-back">🍫</div></div></div>
+          <h3 id="cfResult">Choose a side &amp; flip!</h3>
+          <p id="cfSub" class="muted">Donut has been hot — 6 of the last 10 flips.</p>
+          <div class="versus"><div class="fighter"><div class="avatar big">S</div><b>You</b><span id="cfYourSide">🍩 Donut</span></div><span class="vs">VS</span><div class="fighter"><div class="avatar big bot">🤖</div><b>DonutBot</b><span id="cfBotSide">🍫 Chocolate</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CRASH ============ -->
+    <section class="view" id="view-crash">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>🚀 Crash</h2><p>Cash out before the donut crashes.</p></div><span class="hash-badge" id="crashHash"></span></div>
+      <div class="game-layout">
+        <div class="panel bet-panel">
+          <label>Bet amount ◆</label>
+          <div class="bet-input"><input type="number" id="crashBet" value="500" min="10"><div class="bet-actions"><button data-bet="crashBet" data-op="half">½</button><button data-bet="crashBet" data-op="double">2×</button><button data-bet="crashBet" data-op="max">MAX</button></div></div>
+          <label>Auto cashout (optional)</label>
+          <div class="bet-input"><input type="number" id="crashAuto" placeholder="e.g. 2.00" step="0.1" min="1.1"><span class="input-suffix">×</span></div>
+          <button class="btn btn-pink btn-full btn-lg" id="crashBtn">PLACE BET &amp; RIDE 🚀</button>
+          <button class="btn btn-gold btn-full btn-lg hidden" id="cashoutBtn">CASH OUT</button>
+          <p class="fair-note">Instant crash chance 3% • Max 50×</p>
+          <div class="history" id="crashHistory"></div>
+        </div>
+        <div class="panel stage crash-stage">
+          <div class="crash-display"><span id="crashMult">1.00×</span><small id="crashStatus">Place a bet to start</small></div>
+          <canvas id="crashCanvas" width="900" height="420"></canvas>
+          <div class="crash-riders" id="crashRiders"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MINES ============ -->
+    <section class="view" id="view-mines">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>💣 Mines</h2><p>Reveal donuts, dodge TNT. Cash out anytime.</p></div><span class="hash-badge" id="minesHash"></span></div>
+      <div class="game-layout">
+        <div class="panel bet-panel">
+          <label>Bet amount ◆</label>
+          <div class="bet-input"><input type="number" id="minesBet" value="500" min="10"><div class="bet-actions"><button data-bet="minesBet" data-op="half">½</button><button data-bet="minesBet" data-op="double">2×</button><button data-bet="minesBet" data-op="max">MAX</button></div></div>
+          <label>Number of mines (TNT)</label>
+          <div class="mine-options" id="mineOptions">
+            <button data-mines="3" class="active">3</button><button data-mines="5">5</button><button data-mines="10">10</button><button data-mines="15">15</button><button data-mines="24">24</button>
+          </div>
+          <div class="mines-stats">
+            <div><small>Next tile</small><b id="minesNext">1.13×</b></div>
+            <div><small>Cashout</small><b id="minesCashout" class="gold-text">◆ 0</b></div>
+          </div>
+          <button class="btn btn-pink btn-full btn-lg" id="minesStartBtn">START GAME</button>
+          <button class="btn btn-gold btn-full btn-lg hidden" id="minesCashBtn">CASH OUT ◆ 0</button>
+          <p class="fair-note">25 tiles • Payout grows every safe tile</p>
+        </div>
+        <div class="panel stage">
+          <div class="mines-grid" id="minesGrid"></div>
+          <h3 id="minesResult">Set your mines &amp; start digging ⛏️</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROULETTE ============ -->
+    <section class="view" id="view-roulette">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>🎡 Roulette</h2><p>Pink &amp; Chocolate pay 2× — Gold pays <b>14×</b>.</p></div><span class="hash-badge" id="rouletteHash"></span></div>
+      <div class="panel stage roulette-stage">
+        <div class="roulette-pointer">▼</div>
+        <div class="roulette-window"><div class="roulette-strip" id="rouletteStrip"></div></div>
+        <h3 id="rouletteResult">Place your bets &amp; spin!</h3>
+        <div class="history" id="rouletteHistory"></div>
+      </div>
+      <div class="roulette-bets">
+        <div class="panel rbet pink-bet"><h4>🩷 PINK <span>2×</span></h4><div class="bet-input"><input type="number" id="betPink" placeholder="0" min="0"></div><button class="btn btn-pink btn-full" data-roulette-bet="pink">Bet Pink</button></div>
+        <div class="panel rbet gold-bet"><h4>⭐ GOLD <span>14×</span></h4><div class="bet-input"><input type="number" id="betGold" placeholder="0" min="0"></div><button class="btn btn-gold btn-full" data-roulette-bet="gold">Bet Gold</button></div>
+        <div class="panel rbet choco-bet"><h4>🍫 CHOCOLATE <span>2×</span></h4><div class="bet-input"><input type="number" id="betChoco" placeholder="0" min="0"></div><button class="btn btn-ghost btn-full" data-roulette-bet="choco">Bet Chocolate</button></div>
+      </div>
+      <button class="btn btn-pink btn-lg spin-btn" id="rouletteSpin">🎡 SPIN THE WHEEL</button>
+    </section>
+
+    <!-- ============ JACKPOT ============ -->
+    <section class="view" id="view-jackpot">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>🏆 Jackpot</h2><p>Winner takes the whole pot. Bigger bet = bigger slice.</p></div><span class="live-pill"><span class="dot"></span> ROUND LIVE</span></div>
+      <div class="game-layout">
+        <div class="panel bet-panel">
+          <label>Your entry ◆</label>
+          <div class="bet-input"><input type="number" id="jackpotBet" value="1000" min="10"><div class="bet-actions"><button data-bet="jackpotBet" data-op="half">½</button><button data-bet="jackpotBet" data-op="double">2×</button><button data-bet="jackpotBet" data-op="max">MAX</button></div></div>
+          <button class="btn btn-gold btn-full btn-lg" id="jackpotJoin">JOIN POT 🏆</button>
+          <div class="pot-stats">
+            <div><small>Total pot</small><b id="potTotal" class="gold-text">◆ 0</b></div>
+            <div><small>Your chance</small><b id="potChance">0%</b></div>
+            <div><small>Round ends in</small><b id="potTimer">30s</b></div>
+          </div>
+          <p class="fair-note">Bots join automatically. Winner drawn when timer ends.</p>
+        </div>
+        <div class="panel stage">
+          <div class="jackpot-wheel-wrap">
+            <div class="jackpot-pointer">▼</div>
+            <div class="jackpot-wheel" id="jackpotWheel"><div class="jackpot-center">🍩<b id="potCenter">◆ 0</b></div></div>
+          </div>
+          <h3 id="jackpotResult">Join the pot to play!</h3>
+          <div class="pot-entries" id="potEntries"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASES ============ -->
+    <section class="view" id="view-cases">
+      <div class="game-header"><button class="back-btn" data-nav="lobby">← Lobby</button><div><h2>📦 Cases</h2><p>Open cases for Minecraft loot. Items auto-sell for shards.</p></div></div>
+      <div class="cases-grid" id="casesGrid"></div>
+
+      <div class="panel stage hidden" id="caseStage">
+        <h3 id="caseStageTitle">Opening…</h3>
+        <div class="case-window"><div class="case-pointer">▼</div><div class="roulette-strip" id="caseStrip"></div></div>
+        <div id="caseWin" class="case-win"></div>
+        <button class="btn btn-ghost" id="caseClose">← Back to cases</button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>🎒 Possible drops</h3><span>Auto-sold for ◆</span></div>
+        <div class="drops-grid" id="dropsGrid"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="logo small"><span class="logo-donut">🍩</span><span>DONUT<em>BET</em></span></div>
+      <p><b>Demo / fan-made project.</b> Not affiliated with DonutSMP or DrDonut. All shards are virtual with no real-world value. No real-money gambling. Play responsibly — if gambling stops being fun, stop.</p>
+      <p class="muted">18+ &nbsp;•&nbsp; Provably Fair &nbsp;•&nbsp; Demo build for fun</p>
+    </footer>
+  </main>
+
+  <!-- CHAT -->
+  <aside class="chat" id="chatPanel">
+    <div class="panel-head"><h3>💬 Chat</h3><span class="live-pill small"><span class="dot"></span> <span id="chatOnline">1,204</span></span></div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Send a message…" maxlength="120" autocomplete="off"><button class="btn btn-pink">Send</button></form>
+  </aside>
+</div>
+
+<!-- DEPOSIT MODAL -->
+<div class="modal-overlay" id="depositModal">
+  <div class="modal">
+    <button class="modal-x" data-close>×</button>
+    <h3>💳 Deposit Shards</h3>
+    <p class="muted">Demo deposit — shards are credited instantly, no real payment.</p>
+    <label>Minecraft username</label>
+    <input class="modal-input" id="mcUsername" placeholder="e.g. Steve" value="Steve">
+    <label>Package</label>
+    <div class="packages">
+      <button class="pkg" data-amount="1000">◆ 1,000<small>Starter</small></button>
+      <button class="pkg selected" data-amount="10000">◆ 10,000<small>Most popular</small></button>
+      <button class="pkg" data-amount="50000">◆ 50,000<small>Whale 🐋</small></button>
+      <button class="pkg" data-amount="250000">◆ 250,000<small>Donut King 👑</small></button>
+    </div>
+    <button class="btn btn-pink btn-full btn-lg" id="confirmDeposit">DEPOSIT ◆ <span id="depositAmountLabel">10,000</span></button>
+  </div>
+</div>
+
+<!-- GENERIC MODAL -->
+<div class="modal-overlay" id="infoModal">
+  <div class="modal">
+    <button class="modal-x" data-close>×</button>
+    <h3 id="infoTitle">Info</h3>
+    <div id="infoBody" class="modal-body"></div>
+    <button class="btn btn-pink btn-full" data-close>Got it</button>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
